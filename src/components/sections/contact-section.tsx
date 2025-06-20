@@ -113,21 +113,35 @@ export default function ContactSection({ id }: { id?: string }) {
                 >
                   Objetivo
                 </label>
-                <select
-                  id="goal"
-                  name="goal"
-                  required
-                  className="w-full p-4 border-2 border-red-600/30 rounded-xl bg-gray-900/80 text-white text-lg transition-all duration-300 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30"
-                >
-                  <option value="">Selecione seu objetivo</option>
-                  <option value="emagrecimento">Emagrecimento</option>
-                  <option value="ganho-massa">Ganho de Massa</option>
-                  <option value="condicionamento">
-                    Condicionamento Físico
-                  </option>
-                  <option value="reabilitacao">Reabilitação</option>
-                  <option value="outro">Outro</option>
-                </select>
+                <div className="relative">
+                  <select
+                    id="goal"
+                    name="goal"
+                    required
+                    className="w-full p-4 border-2 rounded-xl bg-gray-900/80 text-white text-lg transition-all duration-300 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30 appearance-none [&:invalid]:border-red-600"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Selecione seu objetivo
+                    </option>
+                    <option value="emagrecimento">Emagrecimento</option>
+                    <option value="ganho-massa">Ganho de Massa</option>
+                    <option value="condicionamento">
+                      Condicionamento Físico
+                    </option>
+                    <option value="reabilitacao">Reabilitação</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  {/* Remove o ícone padrão do select, não adiciona nenhum ícone customizado */}
+                  <style jsx>{`
+                    select::-ms-expand {
+                      display: none;
+                    }
+                    select {
+                      background-image: none !important;
+                    }
+                  `}</style>
+                </div>
               </div>
 
               <div>
