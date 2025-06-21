@@ -2,8 +2,6 @@
 
 import type React from "react";
 
-import { useState } from "react";
-
 const footerLinks = {
   services: [
     { name: "Treinamento Personalizado", href: "#services" },
@@ -24,10 +22,13 @@ const footerLinks = {
     { name: "Blog", href: "#blog" },
   ],
   support: [
-    { name: "Central de Ajuda", href: "#help" },
-    { name: "WhatsApp", href: "https://wa.me/5511999999999" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Política de Privacidade", href: "#privacy" },
+    // { name: "Central de Ajuda", href: "#help" },
+    {
+      name: "WhatsApp",
+      href: "https://api.whatsapp.com/send?phone=5595991186625&text=Oi%2C%20tenho%20interesse%20na%20sua%20mentoria%20&fbclid=PAQ0xDSwLC1wFleHRuA2FlbQIxMAABpyilHONpCQhpmaS1hwXgYdQt6YjX20X9gyMZ5WifWtlp8-gVm4NlAsOYc-XJ_aem_UKmDo55TkI_lBJFI02_aqA9",
+    },
+    //{ name: "FAQ", href: "#faq" },
+    //{ name: "Política de Privacidade", href: "#privacy" },
   ],
 };
 
@@ -38,7 +39,7 @@ const socialLinks = [
     href: "https://instagram.com/personaltrainer",
     color: "from-pink-500 to-purple-600",
   },
-  {
+  /* {
     name: "Facebook",
     icon: "📘",
     href: "https://facebook.com/personaltrainer",
@@ -49,56 +50,16 @@ const socialLinks = [
     icon: "📺",
     href: "https://youtube.com/personaltrainer",
     color: "from-red-500 to-red-600",
-  },
-  {
-    name: "TikTok",
-    icon: "🎵",
-    href: "https://tiktok.com/@personaltrainer",
-    color: "from-gray-800 to-gray-900",
-  },
+  },*/
   {
     name: "WhatsApp",
     icon: "💬",
-    href: "https://wa.me/5511999999999",
+    href: "https://api.whatsapp.com/send?phone=5595991186625&text=Oi%2C%20tenho%20interesse%20na%20sua%20mentoria%20&fbclid=PAQ0xDSwLC1wFleHRuA2FlbQIxMAABpyilHONpCQhpmaS1hwXgYdQt6YjX20X9gyMZ5WifWtlp8-gVm4NlAsOYc-XJ_aem_UKmDo55TkI_lBJFI02_aqA",
     color: "from-green-500 to-green-600",
   },
 ];
 
-const certifications = [
-  "CREF Registrado",
-  "Especialista em Musculação",
-  "Nutrição Esportiva",
-  "Treinamento Funcional",
-  "Pilates Certificado",
-];
-
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubscribing, setIsSubscribing] = useState(false);
-  const [subscribeStatus, setSubscribeStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubscribing(true);
-
-    // Simular inscrição na newsletter
-    setTimeout(() => {
-      setIsSubscribing(false);
-      setSubscribeStatus("success");
-      setEmail("");
-
-      setTimeout(() => {
-        setSubscribeStatus("idle");
-      }, 3000);
-    }, 1500);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const handleSmoothScroll = (href: string) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
@@ -108,49 +69,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-red-900/10 to-gray-900 border-t border-red-600/20">
-      {/* Newsletter Section */}
-      <div className="border-b border-red-600/20">
-        <div className="max-w-6xl mx-auto px-8 py-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              📧 Receba Dicas Exclusivas de Treino
-            </h3>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Inscreva-se na nossa newsletter e receba semanalmente dicas de
-              treino, nutrição e motivação direto no seu email.
-            </p>
-          </div>
-
-          <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Seu melhor email"
-                required
-                className="flex-1 px-6 py-4 rounded-full bg-gray-800/50 border-2 border-red-600/30 text-white placeholder-gray-400 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30 transition-all duration-300"
-              />
-              <button
-                type="submit"
-                disabled={isSubscribing}
-                className={`px-8 py-4 rounded-full font-bold text-white transition-all duration-300 ${
-                  subscribeStatus === "success"
-                    ? "bg-gradient-to-r from-green-600 to-green-500"
-                    : "bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 hover:shadow-lg hover:shadow-red-600/40"
-                } ${isSubscribing ? "opacity-75" : ""}`}
-              >
-                {isSubscribing
-                  ? "INSCREVENDO..."
-                  : subscribeStatus === "success"
-                  ? "INSCRITO! ✓"
-                  : "INSCREVER"}
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -171,16 +89,21 @@ export default function Footer() {
             </div>
 
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Mais de 5 anos transformando vidas através do fitness.
-              Especialista em emagrecimento, ganho de massa muscular e
-              condicionamento físico. Seu sucesso é minha missão!
+              Desde os 10 anos, o esporte me ensinou que disciplina, rotina e
+              consistência fazem toda a diferença no resultado. Passei por
+              futebol, futsal, basquete e futebol americano — e levo essa
+              mentalidade pra tudo o que faço hoje. Acredito que, com pequenas
+              melhorias diárias, bons hábitos e o ambiente certo, qualquer meta
+              pode ser alcançada. Trabalho, pra mim, é uma via de mão dupla: o
+              que você entrega, a vida devolve em forma de resultado,
+              aprendizado e evolução.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3 text-gray-300">
                 <span className="text-red-500">📱</span>
-                <span>(11) 99999-9999</span>
+                <span>(95) 9118-6625</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <span className="text-red-500">📧</span>
@@ -188,24 +111,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <span className="text-red-500">📍</span>
-                <span>São Paulo, SP - Brasil</span>
+                <span>Curitiba, PR - Brasil</span>
               </div>
             </div>
 
             {/* Certifications */}
-            <div>
-              <h4 className="text-white font-bold mb-3">🏆 Certificações</h4>
-              <div className="flex flex-wrap gap-2">
-                {certifications.map((cert, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-red-600/20 border border-red-600/30 rounded-full text-xs text-red-300 font-medium"
-                  >
-                    {cert}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Services Links */}
@@ -324,19 +234,10 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">
-              © 2024 Personal Trainer. Todos os direitos reservados. | CREF:
-              123456-G/SP
+              © 2025 Personal Trainer. Todos os direitos reservados.
             </div>
 
             <div className="flex items-center space-x-6">
-              <button
-                onClick={scrollToTop}
-                className="bg-gradient-to-r from-red-600 to-red-500 text-white p-3 rounded-full transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-red-600/40"
-                title="Voltar ao topo"
-              >
-                ⬆️
-              </button>
-
               <div className="flex space-x-4 text-sm text-gray-400">
                 <button className="hover:text-red-400 transition-colors">
                   Termos de Uso

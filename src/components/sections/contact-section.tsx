@@ -47,7 +47,7 @@ export default function ContactSection({ id }: { id?: string }) {
       id={id || "contact"}
       className="py-20 bg-gradient-to-br from-gray-900 to-red-900/20"
     >
-      <div className="max-w-6xl mx-auto px-8">
+      <div className="max-w-6xl mx-auto px-8 py-4">
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
           CONTATO
         </h2>
@@ -69,22 +69,6 @@ export default function ContactSection({ id }: { id?: string }) {
                   type="text"
                   id="name"
                   name="name"
-                  required
-                  className="w-full p-4 border-2 border-red-600/30 rounded-xl bg-gray-900/80 text-white text-lg transition-all duration-300 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-red-600 font-bold"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
                   required
                   className="w-full p-4 border-2 border-red-600/30 rounded-xl bg-gray-900/80 text-white text-lg transition-all duration-300 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30"
                 />

@@ -59,7 +59,7 @@ export default function HeroSection({ id }: { id?: string }) {
       {/* Hero Content */}
       <div className="text-left z-10 max-w-lg px-8 ml-[5%] md:hero-content-mobile">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg fade-in-up">
-          PERSONAL TRAINER
+          WADE - PERSONAL TRAINER
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/90 fade-in-up-delay-1">
           Transforme seu corpo, transforme sua vida
