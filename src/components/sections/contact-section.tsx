@@ -31,21 +31,11 @@ export default function ContactSection({ id }: { id?: string }) {
     return "ENVIAR MENSAGEM";
   };
 
-  const getButtonClass = () => {
-    const baseClass =
-      "w-full py-4 px-8 rounded-full text-lg font-bold cursor-pointer transition-all duration-300 uppercase tracking-wider";
-
-    if (submitStatus === "success") {
-      return `${baseClass} bg-gradient-to-r from-green-600 to-green-500 text-white transform -translate-y-1`;
-    }
-
-    return `${baseClass} bg-gradient-to-r from-red-600 to-red-500 text-white hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-red-600/60`;
-  };
-
   return (
     <section
       id={id || "contact"}
-      className="py-20 bg-gradient-to-br from-gray-900 to-red-900/20"
+      className="py-20"
+      style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8 py-4">
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
@@ -131,7 +121,6 @@ export default function ContactSection({ id }: { id?: string }) {
               <div className="flex justify-center text-center">
                 <button
                   type="button"
-                  className={getButtonClass()}
                   disabled={isSubmitting}
                   onClick={() => {
                     const name = (

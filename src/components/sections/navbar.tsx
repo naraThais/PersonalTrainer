@@ -233,9 +233,10 @@ export default function Navbar() {
         id="navbar"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isScrolled
-            ? "bg-gray-900/95 backdrop-blur-lg  border-red-600/20 shadow-xl shadow-red-600/5"
+            ? " backdrop-blur-lg  border-red-600/20 shadow-xl shadow-red-600/10"
             : "bg-transparent"
         }`}
+        style={{ backgroundColor: "#111010" }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">

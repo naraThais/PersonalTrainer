@@ -68,7 +68,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-red-900/10 to-gray-900 border-t border-red-600/20">
+    <footer
+      className=" border-t border-red-600/20"
+      style={{ backgroundColor: "#111010" }}
+    >
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -230,7 +233,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-red-600/20 bg-gray-900/50">
+      <div
+        className="border-t border-red-600/20 "
+        style={{ backgroundColor: "#111010" }}
+      >
         <div className="max-w-6xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">

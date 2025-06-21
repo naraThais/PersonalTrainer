@@ -24,7 +24,11 @@ export default function GallerySection({ id }: { id?: string }) {
   };
 
   return (
-    <section id={id || "gallery"} className="py-32 bg-gray-900">
+    <section
+      id={id || "gallery"}
+      className="py-32"
+      style={{ backgroundColor: "#111010" }}
+    >
       <div className="max-w-6xl mx-auto px-8">
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
           RESULTADOS

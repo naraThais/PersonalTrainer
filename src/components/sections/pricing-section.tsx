@@ -46,15 +46,17 @@ const pricingPlans = [
   },
 ];
 
-export default function PricingSection({ id }: { id?: string }) {
+export default function PricingSection() {
   const handlePlanSelect = (planTitle: string) => {
     console.log(`Plano selecionado: ${planTitle}`);
+    // Aqui você pode adicionar lógica para WhatsApp ou formulário de contato
   };
 
   return (
     <section
-      className="py-20 bg-gradient-to-br from-gray-900 via-red-900/20 to-gray-900 relative"
-      id={id || "pricing"}
+      id="pricing"
+      className="py-20  relative"
+      style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8">
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
@@ -64,51 +66,95 @@ export default function PricingSection({ id }: { id?: string }) {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`pricing-card-border bg-gradient-to-br from-red-900/40 to-gray-900 rounded-3xl p-5 text-center relative border-2 border-red-600/30 transition-all duration-400 hover:transform hover:-translate-y-4 hover:border-red-600 hover:shadow-2xl hover:shadow-red-600/40 overflow-hidden ${
+              className={`relative rounded-3xl p-5 text-center border-2 transition-all duration-500 overflow-hidden min-h-[350px] ${
                 plan.featured
-                  ? "border-red-600 bg-gradient-to-br from-red-900/40 via-red-600/20 to-gray-900 scale-105 pricing-card-featured"
-                  : ""
+                  ? "bg-gradient-to-br from-red-600 via-red-500 to-red-700 border-red-400 shadow-2xl shadow-red-500/50 scale-105 transform hover:scale-110 animate-pulse-glow"
+                  : "border-red-700 hover:transform hover:-translate-y-2 hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/30 "
               }`}
+              style={{ backgroundColor: "#111010" }}
             >
-              {plan.badge && (
-                <div className="absolute -top-0 right-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold transform rotate-6">
-                  {plan.badge}
-                </div>
+              {/* Efeito de brilho especial para o card featured */}
+              {plan.featured && (
+                <>
+                  {/* Borda animada */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-red-500 via-red-400 to-red-500 opacity-75 animate-spin-slow blur-sm" />
+                  <div className="absolute inset-[2px] rounded-3xl bg-gradient-to-br from-red-800/60 via-red-700/40 to-gray-900" />
+
+                  {/* Efeito de partículas */}
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-red-400 rounded-full animate-ping" />
+                  <div className="absolute top-8 right-6 w-1 h-1 bg-red-300 rounded-full animate-pulse" />
+                  <div className="absolute bottom-8 left-6 w-1.5 h-1.5 bg-red-500 rounded-full animate-bounce" />
+
+                  {/* Gradiente de fundo especial */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-transparent to-red-800/20 rounded-3xl" />
+                </>
               )}
 
-              <div className="text-3xl mb-2 text-red-600">{plan.icon}</div>
-              <h3 className="text-xl font-bold mb-2 text-white">
-                {plan.title}
-              </h3>
-              <div className="text-3xl font-bold text-red-600 mb-1">
-                {plan.price}
+              {/* Conteúdo do card */}
+              <div className="relative z-10">
+                <div
+                  className={`text-3xl mb-2 ${
+                    plan.featured ? "animate-bounce-slow" : ""
+                  }`}
+                >
+                  {plan.icon}
+                </div>
+
+                <h3
+                  className={`text-xl font-bold mb-2 ${
+                    plan.featured ? "text-white" : "text-white"
+                  }`}
+                >
+                  {plan.title}
+                </h3>
+
+                <div
+                  className={`text-3xl font-bold mb-1 ${
+                    plan.featured ? "text-white animate-pulse" : "text-red-500"
+                  }`}
+                >
+                  {plan.price}
+                </div>
+
+                <div
+                  className={`mb-4 text-base ${
+                    plan.featured ? "text-red-100" : "text-gray-300"
+                  }`}
+                >
+                  {plan.period}
+                </div>
+
+                <ul className="list-none mb-4 space-y-1">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className={`flex items-center justify-center ${
+                        plan.featured ? "text-white" : "text-white"
+                      }`}
+                    >
+                      <span
+                        className={`font-bold mr-2 text-base ${
+                          plan.featured ? "text-red-200" : "text-red-500"
+                        }`}
+                      >
+                        ✓
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  onClick={() => handlePlanSelect(plan.title)}
+                  className={`w-full py-2 px-4 rounded-full text-base font-bold cursor-pointer transition-all duration-300 uppercase tracking-wider ${
+                    plan.featured
+                      ? "bg-white text-red-600 hover:bg-red-50 hover:scale-105 shadow-xl shadow-red-500/30 animate-pulse-button"
+                      : "bg-red-600 text-white hover:bg-red-500 hover:shadow-lg hover:shadow-red-600/50"
+                  } hover:transform hover:-translate-y-1`}
+                >
+                  Escolher Plano
+                </button>
               </div>
-              <div className="text-gray-300 mb-4 text-base">{plan.period}</div>
-
-              <ul className="list-none mb-4 space-y-1">
-                {plan.features.map((feature, featureIndex) => (
-                  <li
-                    key={featureIndex}
-                    className="text-gray-300 flex items-center justify-center"
-                  >
-                    <span className="text-red-600 font-bold mr-2 text-base">
-                      ✓
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => handlePlanSelect(plan.title)}
-                className={`w-full py-2 px-4 rounded-full text-base font-bold cursor-pointer transition-all duration-300 uppercase tracking-wider ${
-                  plan.featured
-                    ? "bg-gradient-to-r from-white to-gray-100 text-red-600 hover:from-gray-100 hover:to-white hover:shadow-lg hover:shadow-white/30"
-                    : "bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-500 hover:to-red-600 hover:shadow-lg hover:shadow-red-600/50"
-                } hover:transform hover:-translate-y-1`}
-              >
-                Escolher Plano
-              </button>
             </div>
           ))}
         </div>
