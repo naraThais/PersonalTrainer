@@ -76,22 +76,6 @@ export default function ContactSection({ id }: { id?: string }) {
 
               <div>
                 <label
-                  htmlFor="phone"
-                  className="block mb-2 text-red-600 font-bold"
-                >
-                  WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="w-full p-4 border-2 border-red-600/30 rounded-xl bg-gray-900/80 text-white text-lg transition-all duration-300 focus:outline-none focus:border-red-600 focus:shadow-lg focus:shadow-red-600/30"
-                />
-              </div>
-
-              <div>
-                <label
                   htmlFor="goal"
                   className="block mb-2 text-red-600 font-bold"
                 >
@@ -116,7 +100,7 @@ export default function ContactSection({ id }: { id?: string }) {
                     <option value="reabilitacao">Reabilitação</option>
                     <option value="outro">Outro</option>
                   </select>
-                  {/* Remove o ícone padrão do select, não adiciona nenhum ícone customizado */}
+
                   <style jsx>{`
                     select::-ms-expand {
                       display: none;
@@ -144,13 +128,37 @@ export default function ContactSection({ id }: { id?: string }) {
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={getButtonClass()}
-              >
-                {getButtonText()}
-              </button>
+              <div className="flex justify-center text-center">
+                <button
+                  type="button"
+                  className={getButtonClass()}
+                  disabled={isSubmitting}
+                  onClick={() => {
+                    const name = (
+                      document.getElementById("name") as HTMLInputElement
+                    )?.value;
+                    const phone = (
+                      document.getElementById("phone") as HTMLInputElement
+                    )?.value;
+                    const goalSelect = document.getElementById(
+                      "goal"
+                    ) as HTMLSelectElement;
+                    const goal =
+                      goalSelect?.options[goalSelect.selectedIndex]?.text;
+                    const message = (
+                      document.getElementById("message") as HTMLTextAreaElement
+                    )?.value;
+
+                    const text = `Olá! Meu nome é ${name}.\nWhatsApp: ${phone}\nObjetivo: ${goal}\nMensagem: ${message}`;
+                    const url = `https://wa.me/559591186625?text=${encodeURIComponent(
+                      text
+                    )}`;
+                    window.open(url, "_blank");
+                  }}
+                >
+                  {getButtonText()}
+                </button>
+              </div>
             </form>
           </div>
 
@@ -161,7 +169,7 @@ export default function ContactSection({ id }: { id?: string }) {
                 📱 WhatsApp
               </h4>
               <p className="text-gray-300 leading-relaxed">
-                (11) 99999-9999
+                (95) 9118-6625
                 <br />
                 Atendimento de Segunda a Sexta
                 <br />
@@ -185,7 +193,7 @@ export default function ContactSection({ id }: { id?: string }) {
                 📍 Localização
               </h4>
               <p className="text-gray-300 leading-relaxed">
-                São Paulo, SP
+                Curitiba, PR
                 <br />
                 Atendimento domiciliar e em academias parceiras
               </p>
