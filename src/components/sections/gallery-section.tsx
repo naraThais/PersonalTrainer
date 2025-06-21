@@ -1,12 +1,13 @@
 "use client";
+import Image from "next/image";
 
 const galleryItems = [
-  { emoji: "💪", label: "ANTES/DEPOIS" },
-  { emoji: "🏃", label: "ANTES/DEPOIS" },
-  { emoji: "🏋️", label: "ANTES/DEPOIS" },
-  { emoji: "🥇", label: "ANTES/DEPOIS" },
-  { emoji: "⚡", label: "ANTES/DEPOIS" },
-  { emoji: "🔥", label: "ANTES/DEPOIS" },
+  { src: "/mulher-jovem-ficar-branco_25030-39532.png", alt: "Antes/Depois 1" },
+  { src: "/mulher-jovem-ficar-branco_25030-39543.png", alt: "Antes/Depois 2" },
+  { src: "/mulher-jovem-ficar-branco_25030-39535.png", alt: "Antes/Depois 3" },
+  { src: "/mulher-jovem-ficar-branco_25030-39532.png", alt: "Antes/Depois 4" },
+  { src: "/mulher-jovem-ficar-branco_25030-39543.png", alt: "Antes/Depois 5" },
+  { src: "/mulher-jovem-ficar-branco_25030-39535.png", alt: "Antes/Depois 6" },
 ];
 
 export default function GallerySection({ id }: { id?: string }) {
@@ -35,10 +36,16 @@ export default function GallerySection({ id }: { id?: string }) {
               className={`gallery-item-${index} h-80 w-44 bg-gradient-to-br from-red-900/40 to-red-600 rounded-2xl relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-600/40 flex items-center justify-center`}
               onClick={() => handleItemClick(index)}
             >
-              <div className="text-6xl text-white">{item.emoji}</div>
-              <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wider">
-                {item.label}
-              </div>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={176}
+                height={320}
+                className="object-cover w-full h-full"
+                loading="lazy"
+                quality={100}
+                priority={false}
+              />
             </div>
           ))}
         </div>
