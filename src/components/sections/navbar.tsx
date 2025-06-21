@@ -64,8 +64,8 @@ export function MobileContactsOutlined(props: SVGProps<SVGSVGElement>) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      width="22"
-      height="22"
+      width="220"
+      height="202"
       {...props}
     >
       <path
@@ -93,7 +93,7 @@ const navigationItems = [
   {
     name: "Contato",
     href: "#contact",
-    icon: <MobileContactsOutlined className="w-5 h-5" />,
+    icon: <MobileContactsOutlined className="w-6 h-6" />,
   },
 ];
 
@@ -244,7 +244,12 @@ export default function Navbar() {
               className="flex items-center space-x-3 cursor-pointer group"
               onClick={() => handleNavClick("#home")}
             >
-              <SportsGymnasticsRounded className="w-7 h-7 md:w-9 md:h-9 text-white" />
+              <span
+                className="text-white transition-transform duration-300 group-hover:scale-125"
+                style={{ fontSize: "3rem", lineHeight: 1 }}
+              >
+                <SportsGymnasticsRounded fontSize="inherit" />
+              </span>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg md:text-xl font-bold text-white transition-colors duration-300">
