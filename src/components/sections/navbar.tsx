@@ -346,32 +346,8 @@ export default function Navbar() {
               })}
 
               {/* Mobile Contact Info */}
-              <div className="pt-4 border-t border-red-600/20 space-y-3">
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <span className="text-red-500">📱</span>
-                  <span className="text-sm">(11) 99999-9999</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <span className="text-red-500">📧</span>
-                  <span className="text-sm">personal@email.com</span>
-                </div>
-              </div>
 
               {/* Mobile Social Links */}
-              <div className="pt-4 border-t border-red-600/20">
-                <p className="text-gray-400 text-sm mb-3">Siga nas redes:</p>
-                <div className="flex space-x-3">
-                  {["📷", "📘", "📺", "💬"].map((emoji, index) => (
-                    <a
-                      key={index}
-                      href="#"
-                      className="w-10 h-10 bg-red-600/20 border border-red-600/30 rounded-full flex items-center justify-center text-lg transition-all duration-300 hover:bg-red-600 hover:scale-110"
-                    >
-                      {emoji}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>

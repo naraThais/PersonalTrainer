@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function HeroSection() {
+export default function HeroSection({ id }: { id?: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function HeroSection() {
 
   return (
     <section
-      id="hero"
+      id={id ?? "hero"}
       className="relative h-[90vh] flex items-start justify-center bg-gradient-to-br from-red-900 via-red-800 to-red-900 overflow-hidden"
       style={{
         alignItems: "center",

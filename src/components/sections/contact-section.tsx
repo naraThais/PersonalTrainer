@@ -34,7 +34,7 @@ export default function ContactSection({ id }: { id?: string }) {
   return (
     <section
       id={id || "contact"}
-      className="py-20"
+      className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8 py-4">

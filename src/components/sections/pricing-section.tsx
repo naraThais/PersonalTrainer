@@ -46,7 +46,7 @@ const pricingPlans = [
   },
 ];
 
-export default function PricingSection() {
+export default function PricingSection({ id }: { id?: string }) {
   const handlePlanSelect = (planTitle: string) => {
     console.log(`Plano selecionado: ${planTitle}`);
     // Aqui você pode adicionar lógica para WhatsApp ou formulário de contato
@@ -54,7 +54,7 @@ export default function PricingSection() {
 
   return (
     <section
-      id="pricing"
+      id={id || "pricing"}
       className="py-20  relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
@@ -87,6 +87,13 @@ export default function PricingSection() {
 
                   {/* Gradiente de fundo especial */}
                   <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-transparent to-red-800/20 rounded-3xl" />
+
+                  {/* Badge de destaque */}
+                  {plan.badge && (
+                    <span className="absolute top-4 right-4 bg-white text-red-600 font-bold px-3 py-1 rounded-full text-xs shadow-lg z-20 animate-bounce">
+                      {plan.badge}
+                    </span>
+                  )}
                 </>
               )}
 

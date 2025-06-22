@@ -41,7 +41,7 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({ id }: { id?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const router = useRouter();
 
@@ -70,7 +70,7 @@ export default function ServicesSection() {
 
   return (
     <section
-      id="services"
+      id={id || "services"}
       ref={sectionRef}
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
