@@ -50,7 +50,7 @@ const pricingPlans = [
   },
 ];
 
-export default function PricingSection() {
+export default function PricingSection({ id }: { id?: string }) {
   const handlePlanSelect = (planTitle: string) => {
     console.log(`Plano selecionado: ${planTitle}`);
     // Aqui você pode adicionar lógica para WhatsApp ou formulário de contato
@@ -58,7 +58,7 @@ export default function PricingSection() {
 
   return (
     <section
-      id="pricing"
+      id={id || "pricing"}
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >

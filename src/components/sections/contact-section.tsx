@@ -4,7 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import { GrContact } from "react-icons/gr";
 
-export default function ContactSection() {
+export default function ContactSection({ id }: { id?: string }) {
   const [formData, setFormData] = useState({
     name: "",
     goal: "",
@@ -63,7 +63,7 @@ export default function ContactSection() {
 
   return (
     <section
-      id="contact"
+      id={id || "contact"}
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
