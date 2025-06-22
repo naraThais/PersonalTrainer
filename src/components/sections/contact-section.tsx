@@ -3,6 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
+import { LuPhoneCall } from "react-icons/lu";
 
 export default function ContactSection({ id }: { id?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,10 +38,18 @@ export default function ContactSection({ id }: { id?: string }) {
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
-      <div className="max-w-6xl mx-auto px-8 py-4">
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
-          CONTATO
+      {/* Header */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
+          <span className="text-3xl">
+            <LuPhoneCall />
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          NOSSOS <span className="text-red-500">CONTATOS</span>
         </h2>
+      </div>
+      <div className="max-w-6xl mx-auto px-8 py-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Formulário */}
           <div className="bg-red-600/10 p-12 rounded-3xl border-2 border-red-600/30">

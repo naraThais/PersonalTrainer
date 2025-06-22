@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { VscDebugStart } from "react-icons/vsc";
 
 export default function HeroSection({ id }: { id?: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -75,14 +76,15 @@ export default function HeroSection({ id }: { id?: string }) {
             className="group relative px-8 py-4 bg-white text-red-800 font-bold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/30"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-              🚀 COMEÇAR AGORA
+              <VscDebugStart style={{ fontSize: "1.5rem" }} />
+              COMEÇAR AGORA
             </span>
             <div className="absolute inset-0 bg-red-100 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
           </button>
 
           <button className="group px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-full transition-all duration-300 hover:bg-white hover:text-red-800 hover:scale-105">
             <span className="flex items-center justify-center gap-2">
-              ▶️ VER RESULTADOS
+              VER RESULTADOS
             </span>
           </button>
         </div>

@@ -1,4 +1,5 @@
 "use client";
+import { IoPricetagsOutline } from "react-icons/io5";
 
 const pricingPlans = [
   {
@@ -59,9 +60,17 @@ export default function PricingSection({ id }: { id?: string }) {
       style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8">
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
-          PACOTES
-        </h2>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
+            <span className="text-4xl">
+              <IoPricetagsOutline />
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            NOSSOS <span className="text-red-500">PLANOS</span>
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingPlans.map((plan, index) => (
             <div

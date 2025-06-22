@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { CgGym } from "react-icons/cg";
 
 const services = [
   {
@@ -43,7 +43,6 @@ const services = [
 
 export default function ServicesSection({ id }: { id?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
-  const router = useRouter();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,10 +63,6 @@ export default function ServicesSection({ id }: { id?: string }) {
     return () => observer.disconnect();
   }, []);
 
-  const handleServiceClick = (slug: string) => {
-    router.push(`/servicos/${slug}`);
-  };
-
   return (
     <section
       id={id || "services"}
@@ -75,6 +70,21 @@ export default function ServicesSection({ id }: { id?: string }) {
       className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
+      {/* Header */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
+          <span className="text-4xl">
+            <CgGym />
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          NOSSOS <span className="text-red-500">SERVIÇOS</span>
+        </h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          Soluções completas para transformar seu corpo e sua vida com
+          acompanhamento profissional
+        </p>
+      </div>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
@@ -90,27 +100,12 @@ export default function ServicesSection({ id }: { id?: string }) {
       </div>
 
       <div className="max-w-6xl mx-auto px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
-            <span className="text-2xl">⚡</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            NOSSOS <span className="text-red-500">SERVIÇOS</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Soluções completas para transformar seu corpo e sua vida com
-            acompanhamento profissional
-          </p>
-        </div>
-
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
               className="service-card group relative bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 transition-all duration-500 hover:transform hover:-translate-y-2 hover:border-red-500/50 hover:shadow-2xl hover:shadow-red-500/20 opacity-0 translate-y-8 cursor-pointer"
-              onClick={() => handleServiceClick(service.slug)}
             >
               {/* Card Background Gradient */}
               <div
@@ -158,15 +153,6 @@ export default function ServicesSection({ id }: { id?: string }) {
                 </ul>
 
                 {/* CTA Button */}
-                <button
-                  className={`w-full py-3 px-6 bg-gradient-to-r ${service.color} text-white font-semibold rounded-xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 hover:shadow-lg hover:shadow-red-500/30`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleServiceClick(service.slug);
-                  }}
-                >
-                  Saiba Mais
-                </button>
               </div>
 
               {/* Decorative Elements */}
@@ -176,29 +162,6 @@ export default function ServicesSection({ id }: { id?: string }) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center justify-center space-x-4 bg-black/60 backdrop-blur-sm border border-gray-800 rounded-2xl px-8 py-6">
-            <div className="text-3xl">🎯</div>
-            <div className="text-left">
-              <h3 className="text-white font-bold text-lg">
-                Pronto para começar?
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Entre em contato e transforme sua vida hoje mesmo
-              </p>
-            </div>
-            <button
-              className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/30"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Falar Agora
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
