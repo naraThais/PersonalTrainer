@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { IoTrophyOutline } from "react-icons/io5";
+import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
 const galleryItems = [
   { src: "/mulher-jovem-ficar-branco_25030-39532.png", alt: "Antes/Depois 1" },
@@ -35,7 +35,7 @@ export default function GallerySection({ id }: { id?: string }) {
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
             <span className="text-4xl">
-              <IoTrophyOutline />
+              <MdOutlineAddPhotoAlternate />
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
