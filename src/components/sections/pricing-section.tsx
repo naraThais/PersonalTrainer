@@ -55,7 +55,7 @@ export default function PricingSection() {
   return (
     <section
       id="pricing"
-      className="py-20  relative"
+      className="py-20  relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8">

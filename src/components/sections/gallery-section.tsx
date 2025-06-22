@@ -26,13 +26,24 @@ export default function GallerySection({ id }: { id?: string }) {
   return (
     <section
       id={id || "gallery"}
-      className="py-32"
+      className="py-20 relative overflow-hidden"
       style={{ backgroundColor: "#111010" }}
     >
       <div className="max-w-6xl mx-auto px-8">
-        <h2 className="text-center text-4xl md:text-5xl font-bold mb-12 text-red-600 drop-shadow-md">
-          RESULTADOS
-        </h2>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl mb-6">
+            <span className="text-2xl">🏆</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            RESULTADOS <span className="text-red-500">REAIS</span>
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            Transformações reais de pessoas reais. Veja como nossos alunos
+            alcançaram seus objetivos
+          </p>
+        </div>
+        {/* Gallery Items */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-items-center">
           {galleryItems.map((item, index) => (
             <div
